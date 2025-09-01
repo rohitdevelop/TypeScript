@@ -1,17 +1,21 @@
- import React from 'react'
- import Navbar from './Componnets/Navbar'
- import Home from './Componnets/Home'
- import Prep from './Componnets/Prep'
- const App = () => {
-   return (
-     
-     <div>
-       <Navbar />
-       <Home />
-       <Prep />
-     </div>
-   )
- }
- 
- export default App
- 
+import React from "react";
+import Navbar from "./Componnets/Navbar";
+import Home from "./Componnets/Home";
+import Prep from "./Componnets/Prep";
+import { Routes, Route } from "react-router-dom";
+
+const App: React.FC = () => {
+  return (
+    <>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/prep" element={<Prep />} />
+        </Routes>
+      </div>
+    </>
+  );
+};
+
+export default App;
