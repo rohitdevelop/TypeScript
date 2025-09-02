@@ -10,8 +10,8 @@ const App: React.FC = () => {
       <Navbar />
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/prep" element={<Prep />} />
+          <Route path="/" element={<Home  />} />
+          <Route path="/prep" element={<Prep name="rohit singh"/>} />
         </Routes>
       </div>
     </>
