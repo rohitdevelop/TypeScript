@@ -1,24 +1,18 @@
-import React, { createContext, useState } from "react";
-import type { ReactNode } from "react";
+// src/context/ThemeContext.tsx
+import React, { createContext, useState, ReactNode } from "react";
 
-// 1. Theme type
-type Theme = "light" | "dark";
-
-// 2. Context type
-interface ThemeContextType {
-  theme: Theme;
+type ThemeContextType = {
+  theme: "light" | "dark";
   toggleTheme: () => void;
-}
+};
 
-// 3. Create context with default values
 export const ThemeContext = createContext<ThemeContextType>({
   theme: "light",
   toggleTheme: () => {},
 });
 
-// 4. Provider component
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -26,7 +20,9 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      <div className={theme === "dark" ? "bg-gray-900 text-white min-h-screen" : "bg-white text-black min-h-screen"}>
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };

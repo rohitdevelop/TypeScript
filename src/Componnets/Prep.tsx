@@ -1,24 +1,13 @@
-import React, { useState } from "react";
+// src/pages/About.tsx
+import React from "react";
 
-// Define props type
-interface PrepProps {
-  name: string;
-}
-
-const Prep: React.FC<PrepProps> = ({ name }) => {
-  const [count, setCount] = useState<number>(0);
-
+const About: React.FC = () => {
   return (
-    <div className="h-screen w-full bg-black text-white">
-      <h1>this is a {name} {count}</h1>
-      <button
-        className="bg-green-500 py-2 px-5"
-        onClick={() => setCount(count + 1)}
-      >
-        increment
-      </button>
+    <div className="p-6">
+      <h2 className="text-3xl font-bold mb-4">About Us</h2>
+      <p>This page tells you more about our project and goals.</p>
     </div>
   );
 };
 
-export default Prep;
+export default About;

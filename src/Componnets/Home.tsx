@@ -1,34 +1,15 @@
-import React, { useState } from "react";
+// src/pages/Home.tsx
+import React from "react";
 
-const Home = () => {
-const [text , setText] = useState<string>("")
-const [todo , setTodo] = useState<string[]>([])
-
-
- function textchange(e:React.ChangeEvent<HTMLInputElement>) {
-  setText(e.target.value)
- }
-
- function handleclick() {
-  setTodo([...todo,text])
-  setText('')
- }
-
+const Home: React.FC = () => {
   return (
-    <div className=" h-screen w-full bg-black text-white flex justify-center items-center">
-      <div className="w-64 h-80 bg-white text-black text-center">
-        <h1>TODO LIST</h1>
-        <div className="">
-          <input onChange={textchange} value={text} className="bg-black text-white" type="text" />
-          <button onClick={handleclick} className="py-2 px-2 rounded-2xl bg-amber-500">add</button>
-        </div>
+    <div className="p-6">
+      <h2 className="text-3xl font-bold mb-4">Welcome to Home Page</h2>
+      <p>This is the home page of our React + TypeScript + Tailwind app.</p>
 
-<ul>{todo.map((tod, index)=>(
-<li key={index}>{tod}</li>
-))}
-
-</ul>
-      </div>
+      <p>kAL LIGHT MODE DARK MOOD KAISE HUA CODE KO SAMJHO </p>
+      <p>or HOME TOTO LIST BANAO </p>
+      <p>OR PREP MAI STATE OR PROP SHIKHO CONTER APP BANA KE </p>
     </div>
   );
 };
