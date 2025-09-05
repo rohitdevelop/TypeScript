@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 shadow-md">
+    <nav className="flex items-center justify-between px-6 py-4 shadow-md ">
       <h1 className="text-xl font-bold">My Website</h1>
       <div className="flex gap-6 items-center">
         <Link to="/" className="hover:underline">Home</Link>
