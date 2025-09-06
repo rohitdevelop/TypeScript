@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./Componnets/Navbar";
 import Home from "./Componnets/Home";
 import Prep from "./Componnets/Prep";
+import Typescript from "./Componnets/Typescript";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Typescript" element={<Typescript />} />
         <Route path="/prep" element={<Prep name="Counter app" />} />
       </Routes>
     </>

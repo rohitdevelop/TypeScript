@@ -1,7 +1,7 @@
  import React, { useState } from "react";
 
  const Home: React.FC = () => {
-   const [text, setText] = useState<string>("");
+ const [text, setText] = useState<string>("");
 
    const [todo, setTodo] = useState<string[]>([]);
    function taskadd(): void {

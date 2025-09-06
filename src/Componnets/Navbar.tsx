@@ -12,6 +12,7 @@ const Navbar: React.FC = () => {
       <div className="flex gap-6 items-center">
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/prep" className="hover:underline">About</Link>
+        <Link to="/Typescript" className="hover:underline">Typescript</Link>
         <button 
           onClick={toggleTheme} 
           className="px-3 py-1 rounded-lg border"
