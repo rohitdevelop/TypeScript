@@ -3,9 +3,9 @@
 
  
  
-  const quotes: Quote[] = [
+  <!-- const quotes: Quote[] = [
     { id: 1, text: "Believe in yourself!", author: "Rohit Singh" },
     { id: 2, text: "Keep pushing forward.", author: "Steve Jobs" },
     { id: 3, text: "Success is no accident.", author: "Pele" },
     { id: 4, text: "Stay hungry, stay foolish.", author: "Steve Jobs" },
-  ];
+  ]; -->

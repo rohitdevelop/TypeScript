@@ -1,50 +1,41 @@
-import React, { useState } from "react";
+ import React, { useState } from 'react'
+ 
 
-// 1. Define type (TS enforces structure)
-type Quote = {
-  id: number;
-  text: string;
-  author: string;
-};
+type jokes = {
+  id:number,
+  name:string,
+  joke:string,
+}
 
-const Typescript: React.FC = () => {
-  // 2. Array of Quote objects
-  const quotes: Quote[] = [
-    { id: 1, text: "Believe in yourself!", author: "Rohit Singh" },
-    { id: 2, text: "Keep pushing forward.", author: "Steve Jobs" },
-    { id: 3, text: "Success is no accident.", author: "Pele" },
-    { id: 4, text: "Stay hungry, stay foolish.", author: "Steve Jobs" },
-  ];
+const majak: jokes[] =[
+    { id: 1, joke: "Believe in yourself!", name: "Rohit Singh" },
+    { id: 2, joke: "Keep pushing forward.", name: "Steve Jobs" },
+    { id: 3, joke: "Success is no accident.", name: "Pele" },
+    { id: 4, joke: "Stay hungry, stay foolish.", name: "Steve Jobs" },
+]
 
-  // 3. State can be Quote OR null
-  const [quote, setQuote] = useState<Quote | null>(null);
 
-  // 4. Function with return type void
-  const handlenext = (): void => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[randomIndex]); // always one Quote object
-  };
+ const Typescript: React.FC = () => {
+  const [joke , setJoke] = useState<jokes | null>(null)
 
+const handlieclicl = (): void =>{
+const change  = Math.floor(Math.random() * majak.length)
+setJoke(majak[change])
+}; 
   return (
+     <div>
+  {joke ? (
     <div className="text-center">
-      {/* 5. Conditional rendering with optional state */}
-      {quote ? (
-        <div>
-          <h1>{quote.text}</h1>
-          <p>- {quote.author}</p>
-        </div>
-      ) : (
-        <p>Click "NEXT" to get a quote!</p>
-      )}
-
-      <button
-        onClick={handlenext}
-        className="bg-green-500 text-white py-2 px-4 rounded mt-4"
-      >
-        NEXT
-      </button>
+      <h1>{joke.joke}</h1>
+      <p>{joke.name}</p>
     </div>
-  );
-};
-
-export default Typescript;
+  ):(
+    <p>click to show a joke </p>
+  )};
+  <button onClick={handlieclicl}> next</button>     
+     </div>
+   )
+ }
+ 
+ export default Typescript
+ 
