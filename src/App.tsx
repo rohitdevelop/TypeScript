@@ -5,6 +5,7 @@ import Navbar from "./Componnets/Navbar";
 import Home from "./Componnets/Home";
 import Prep from "./Componnets/Prep";
 import Typescript from "./Componnets/Typescript";
+import Uniqe from "./Componnets/Uniqe";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Typescript" element={<Typescript />} />
+        <Route path="/Uniqe" element={<Uniqe />} />
         <Route path="/prep" element={<Prep name="Counter app" />} />
       </Routes>
     </>

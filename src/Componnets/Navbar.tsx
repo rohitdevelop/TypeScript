@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/prep" className="hover:underline">About</Link>
         <Link to="/Typescript" className="hover:underline">Typescript</Link>
+        <Link to="/Uniqe" className="hover:underline">Spaisal</Link>
         <button 
           onClick={toggleTheme} 
           className="px-3 py-1 rounded-lg border"
