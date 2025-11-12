@@ -1,60 +1,60 @@
- import React, { useState } from "react";
-
- const Home: React.FC = () => {
- const [text, setText] = useState<string>("");
-
-   const [todo, setTodo] = useState<string[]>([]);
-   function taskadd(): void {
-    if (text.trim() === "") return; 
-    setTodo([...todo, text]);
-    setText("");
+import React, { useState } from "react";
+const Home = () => {
+  const [text, setText] = useState("");
+  const [tasks, setTasks] = useState([]);
+const [btntext, setBtntext] = useState("Add")
+const [editindex, setEditindex] = useState(null)
+  function handlechange(e) {
+    setText(e.target.value);
   }
+  function handleclick() {
+    if (text === '') {
+      alert("add task")
+    }
+    if (editindex === null) {
+      setTasks([...tasks,text]);   
+    } else {
+      const updatedtask = tasks.map((task,i)=> i === editindex ?text:task)
+      setTasks(updatedtask)
+    }
+    setBtntext("Add")    
+setText('')
+     
+    }
+  
 
-   function handledelet(index: number): void {
- 
-     setTodo((prev) => prev.filter((_, i) => i !== index));
+ function handldlete(index) {
+  setTasks(tasks.filter((item,i)=> i !== index))
+  setBtntext("Add")
+}
+
+function handleedit(index) {
+  setEditindex(index); 
+  setText(tasks[index])
+  
+  // setTasks(tasks.filter((item,i)=> i !== index))
+setBtntext("update")
   }
-
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
-      <h2 className="text-4xl font-extrabold mb-8 drop-shadow-lg">
-        Welcome to TODO List App
-      </h2>
-
-      <div className="bg-white p-8 rounded-xl shadow-xl flex flex-col items-center space-y-4 w-96">
-        <h1 className="text-2xl font-semibold text-gray-800">TODO</h1>
-
-         <input
-          type="text"
+    <div className="border p-20">
+      <div className="flex justify-center items-center gap-2">
+        <input
           value={text}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setText(e.target.value)
-          }
-          placeholder="Enter your task..."
-          className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800"
+          onChange={handlechange}
+          type="text"
+          placeholder="enter task"
         />
-
-        <button
-          onClick={taskadd}
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-300 shadow-md"
-        >
-          Add
+        <button onClick={handleclick} className={`py-5 px-5 text-white ${btntext === "Add" ? "bg-amber-700" : "bg-green-700"}`}>
+          {btntext}
         </button>
-
-        <ul>
-          {todo.map((tod, index) => (
-            <li key={index} className="flex justify-between items-center">
-              {tod}
-              <button
-                onClick={() => handledelet(index)}
-                className="text-red-600 cursor-pointer ml-4"
-              >
-                delete
-              </button>
-            </li>
-          ))}
-        </ul>
       </div>
+
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task} <span className="text-red-900 border"  onClick={() => handldlete(index)}>delete</span> <span className="text-green-600
+          border pr-2" onClick={() => handleedit(index)}>edit</span></li>
+        ))}
+      </ul>
     </div>
   );
 };
